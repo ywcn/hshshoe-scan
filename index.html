@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>鞋子手机扫码入库系统｜仓库扫码最终稳定版</title>
+<style>
+:root{--main:#0f766e;--main2:#115e59;--bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#d1d5db;--danger:#dc2626;--warn:#b45309;--ok:#047857;--soft:#ecfdf5;--focus:#99f6e4;--infoBg:#fff7d6;--infoText:#8a5a00;--infoBorder:#f2d38a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Microsoft YaHei",sans-serif}.app{max-width:920px;margin:0 auto;min-height:100vh;padding:12px 12px 86px}.top{position:sticky;top:0;z-index:20;background:rgba(245,247,251,.96);backdrop-filter:blur(10px);padding:8px 0 10px;border-bottom:1px solid #e5e7eb}.title{display:flex;align-items:center;gap:8px;margin:0 0 8px}.title h1{font-size:20px;margin:0}.pill{font-size:12px;background:#d1fae5;color:#065f46;border-radius:999px;padding:4px 8px;font-weight:800}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.tab{border:1px solid var(--line);background:#fff;color:#374151;border-radius:12px;padding:10px 4px;font-size:14px;font-weight:800;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease}.tab:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 6px 14px rgba(15,23,42,.10);border-color:#99f6e4}.tab:active{transform:scale(.98)}.tab.active{background:var(--main);border-color:var(--main);color:#fff;box-shadow:0 6px 14px rgba(15,118,110,.18)}.page{display:none}.page.active{display:block}.card{background:var(--card);border:1px solid #e5e7eb;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}h2{font-size:18px;margin:0 0 10px}.hint{font-size:13px;line-height:1.65;color:var(--muted)}.notice{display:flex;gap:10px;align-items:flex-start;background:var(--infoBg);color:var(--infoText);border:1px solid var(--infoBorder);border-radius:14px;padding:11px 12px;font-size:13px;line-height:1.65;margin:8px 0 10px}.notice .icon{flex:0 0 22px;width:22px;height:22px;border-radius:999px;background:#fff3bf;color:#9a6700;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;margin-top:1px}.notice strong{color:#7a4c00}.tipBlue{background:#eff6ff;color:#1d4e89;border-color:#bfdbfe}.tipBlue .icon{background:#dbeafe;color:#1d4ed8}.tipGreen{background:#ecfdf5;color:#065f46;border-color:#a7f3d0}.tipGreen .icon{background:#d1fae5;color:#047857}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}label{display:block;font-size:13px;color:#374151;font-weight:800;margin-bottom:5px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:13px;background:#fff;padding:12px;font-size:16px;outline:none;transition:border-color .18s ease, box-shadow .18s ease}input:focus,select:focus,textarea:focus{border-color:#14b8a6;box-shadow:0 0 0 4px rgba(20,184,166,.12)}textarea{min-height:98px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px}.btn{border:0;border-radius:14px;padding:13px 14px;font-size:16px;font-weight:900;background:var(--main);color:#fff;box-shadow:0 4px 12px rgba(15,118,110,.14);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, filter .18s ease, background-color .18s ease}.btn:hover:not(:disabled){transform:translateY(-1px) scale(1.03);box-shadow:0 8px 18px rgba(15,118,110,.20);filter:brightness(1.02)}.btn:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 3px 8px rgba(15,118,110,.18)}.btn:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(20,184,166,.18),0 8px 18px rgba(15,118,110,.20)}.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;filter:grayscale(.1)}.btn.secondary{background:#111827;box-shadow:0 4px 12px rgba(17,24,39,.15)}.btn.secondary:hover:not(:disabled){box-shadow:0 8px 18px rgba(17,24,39,.24)}.btn.light{background:#eef2f7;color:#111827;box-shadow:0 2px 8px rgba(15,23,42,.08)}.btn.light:hover:not(:disabled){background:#e5e7eb;box-shadow:0 7px 14px rgba(15,23,42,.12)}.btn.warn{background:var(--warn)}.btn.danger{background:var(--danger)}.btn.block{display:block;width:100%;margin-top:8px}.bigBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.status{border-radius:14px;padding:12px;margin-top:10px;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;font-weight:800;line-height:1.5}.status.err{background:#fef2f2;color:#991b1b;border-color:#fecaca}.status.warn{background:#fffbeb;color:#92400e;border-color:#fde68a}.reader{width:100%;min-height:260px;background:#0b1020;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;border:2px solid #111827}.reader video{width:100%;height:auto;max-height:420px}.manual{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.kpi{background:var(--soft);border:1px solid #a7f3d0;border-radius:16px;padding:11px;transition:transform .18s ease, box-shadow .18s ease}.kpi:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(4,120,87,.10)}.kpi span{display:block;font-size:12px;color:#047857;font-weight:800}.kpi b{display:block;margin-top:4px;font-size:24px;color:#064e3b}.latest{border:2px solid #bbf7d0;background:#f0fdf4}.latest .row{display:grid;grid-template-columns:80px 1fr;gap:8px;padding:4px 0;font-size:15px}.latest .name{color:#047857;font-weight:900}.sizesMini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.sizeBox{border:1px solid #bbf7d0;border-radius:10px;background:#fff;padding:8px;text-align:center}.sizeBox b{font-size:18px}.tablebox{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff}table{border-collapse:collapse;width:100%;min-width:860px}th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:center;white-space:nowrap;font-size:14px}th{background:var(--main);color:#fff;position:sticky;top:0;z-index:1}td.left{text-align:left}.smallActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.listItem{border:1px solid #e5e7eb;border-radius:14px;background:#fff;padding:11px;margin:8px 0}.listItem .head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.listItem .meta{font-size:13px;color:var(--muted);margin-top:5px}.badge{display:inline-block;border-radius:999px;background:#eef2ff;color:#3730a3;padding:3px 8px;font-size:12px;font-weight:800}.bottomBar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid #e5e7eb;padding:10px max(12px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-right));display:grid;grid-template-columns:1fr 1fr;gap:10px}.labels{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;margin-top:12px}.label-card{border:1.5px solid #111;border-radius:8px;background:#fff;padding:10px;display:grid;grid-template-columns:1fr 110px;gap:8px;break-inside:avoid}.label-card h3{font-size:18px;margin:0 0 4px}.label-card .big{font-size:22px;font-weight:900;line-height:1.25}.qrimg{width:106px;height:106px}.label-sizes{grid-column:1/3;display:grid;grid-template-columns:repeat(6,1fr);font-size:13px;border-top:1px solid #333;border-left:1px solid #333}.label-sizes div{border-right:1px solid #333;border-bottom:1px solid #333;padding:4px;text-align:center}.hide{display:none!important}.switchLine{display:flex;align-items:center;gap:10px;margin:8px 0}.switchLine label{cursor:pointer}.switchLine input{width:auto;transform:scale(1.2);cursor:pointer}@media(max-width:520px){.app{padding:10px 10px 92px}.tabs{gap:5px}.tab{font-size:13px;padding:9px 2px;border-radius:10px}.grid,.grid3{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}.kpi{padding:9px}.kpi b{font-size:20px}.reader{min-height:235px}.manual{grid-template-columns:1fr}.label-card{grid-template-columns:1fr 98px}.qrimg{width:94px;height:94px}.label-sizes{grid-template-columns:repeat(4,1fr)}}@media print{body{background:#fff}.top,.bottomBar,.no-print,.page:not(#page-labels) .card:not(.print-area){display:none!important}.app{max-width:none;padding:0}.page{display:block!important}.page:not(#page-labels){display:none!important}.print-area{display:block!important}.labels{grid-template-columns:repeat(2,1fr);gap:8px}.label-card{page-break-inside:avoid}}
+
+/* 90×50mm 热敏标签专用打印版 */
+.print-area{overflow:auto}.labels{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:12px}.label-card{width:90mm;height:50mm;border:1.2px solid #111;border-radius:2.5mm;background:#fff;padding:2mm;display:grid;grid-template-columns:58mm 25mm;grid-template-rows:25mm 19mm;column-gap:2mm;row-gap:1mm;break-inside:avoid;page-break-inside:avoid;overflow:hidden;color:#000;font-family:Arial,"Microsoft YaHei",sans-serif}.label-info{min-width:0;overflow:hidden}.label-brand{font-size:16px;font-weight:900;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.label-supplier{font-size:11px;font-weight:800;line-height:1.1;margin-top:.8mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.label-meta{font-size:10px;font-weight:700;line-height:1.25;margin-top:.8mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.label-model{font-size:17px;font-weight:900;line-height:1.15;margin-top:.8mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.label-color-total{font-size:11px;font-weight:800;line-height:1.1;margin-top:.8mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.label-qr{text-align:center;overflow:hidden}.qrimg{width:24mm!important;height:24mm!important;display:block;margin:0 auto}.qrboxno{font-size:9px;line-height:1;margin-top:.5mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.label-sizes{grid-column:1/3;display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid #222;border-left:1px solid #222;font-size:9px;line-height:1.05;height:19mm;overflow:hidden}.label-sizes div{border-right:1px solid #222;border-bottom:1px solid #222;padding:.6mm .3mm;text-align:center;display:flex;align-items:center;justify-content:center;min-width:0}.label-sizes b{font-size:12px;font-weight:900}.label-sizes .size-cell{font-weight:500}.label-sizes .qty-cell{font-weight:900}.label-sizes .qty-cell.zero{color:#777;font-weight:700}
+@media print{@page{size:90mm 50mm;margin:0}html,body{width:90mm!important;margin:0!important;padding:0!important;background:#fff!important;overflow:hidden}.top,.bottomBar,.no-print,.page:not(#page-labels) .card:not(.print-area){display:none!important}.app{max-width:none!important;width:90mm!important;margin:0!important;padding:0!important;min-height:0!important}.page{display:block!important;margin:0!important;padding:0!important}.page:not(#page-labels){display:none!important}.print-area{display:block!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important}.labels{display:block!important;margin:0!important;padding:0!important;gap:0!important}.label-card{width:90mm!important;height:50mm!important;margin:0!important;padding:2mm!important;border:1px solid #111!important;border-radius:2mm!important;box-shadow:none!important;page-break-inside:avoid!important;break-inside:avoid!important;page-break-after:always!important;break-after:page!important}.label-card:last-child{page-break-after:auto!important;break-after:auto!important}}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top no-print">
+    <div class="title"><h1>鞋子手机扫码入库</h1><span class="pill">仓库最终稳定版</span></div>
+    <div class="tabs">
+      <button class="tab active" data-page="scan">扫码</button>
+      <button class="tab" data-page="summary">汇总</button>
+      <button class="tab" data-page="details">明细</button>
+      <button class="tab" data-page="labels">箱唛</button>
+      <button class="tab" data-page="settings">设置</button>
+    </div>
+  </div>
+
+  <section id="page-scan" class="page active">
+    <div class="card">
+      <h2>手机扫码入库</h2>
+      <div class="notice tipGreen"><div class="icon">✓</div><div><strong>仓库使用：</strong>厂家二维码贴在外箱后，点“开始扫码”对准二维码即可入库。蓝牙扫码枪也可以直接扫到下方粘贴框里录入。</div></div>
+      <div class="switchLine"><input type="checkbox" id="autoAdd" checked><label for="autoAdd" style="margin:0">扫到后自动入库</label></div>
+      <div id="reader" class="reader">摄像头未开启</div>
+      <div class="bigBtns" style="margin-top:10px">
+        <button class="btn" id="startBtn" title="打开手机摄像头开始扫码">开始扫码</button>
+        <button class="btn secondary" id="stopBtn" title="关闭摄像头扫码">停止扫码</button>
+      </div>
+      <div id="scanStatus" class="status">准备好了，点击开始扫码。</div>
+    </div>
+
+    <div id="pendingCard" class="card latest hide">
+      <h2>待确认入库</h2>
+      <div id="pendingInfo"></div>
+      <button class="btn block" id="confirmPending">确认入库</button>
+    </div>
+
+    <div id="latestCard" class="card latest hide">
+      <h2>最近录入</h2>
+      <div id="latestInfo"></div>
+    </div>
+
+    <div class="card">
+      <h2>手动粘贴 / 扫码枪输入</h2>
+      <div class="manual">
+        <textarea id="manualInput" placeholder="把二维码内容粘贴到这里，或把光标放这里用蓝牙扫码枪扫码"></textarea>
+        <button class="btn" id="manualAdd" title="录入粘贴区中的二维码内容">录入</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-summary" class="page">
+    <div class="card">
+      <h2>汇总</h2>
+      <div class="notice tipBlue"><div class="icon">i</div><div><strong>当天统计：</strong>这里会按品牌、款号、颜色和 34-44 尺码自动汇总。当天扫完后，建议先导出汇总 CSV 备份。</div></div>
+      <div class="kpis">
+        <div class="kpi"><span>箱数</span><b id="kpiBoxes">0</b></div>
+        <div class="kpi"><span>总双数</span><b id="kpiPairs">0</b></div>
+        <div class="kpi"><span>款色数</span><b id="kpiSku">0</b></div>
+      </div>
+      <div class="grid" style="margin-top:10px">
+        <div><label>品牌筛选</label><select id="brandFilter"></select></div>
+        <div><label>搜索款号/颜色</label><input id="summarySearch" placeholder="例如 109-6568 / 黑色"></div>
+      </div>
+      <div class="smallActions">
+        <button class="btn" id="exportSummary" title="导出当前筛选条件下的汇总表">导出汇总 CSV</button>
+        <button class="btn light" id="refreshSummary" title="重新计算汇总数据">刷新</button>
+      </div>
+    </div>
+    <div class="card"><div class="tablebox"><table id="summaryTable"></table></div></div>
+  </section>
+
+  <section id="page-details" class="page">
+    <div class="card">
+      <h2>扫码明细</h2>
+      <div class="notice"><div class="icon">!</div><div><strong>注意：</strong>明细数据保存在当前手机/电脑浏览器里。当天扫完先导出明细和汇总，再清空当天数据。</div></div>
+      <div class="grid">
+        <div><label>品牌筛选</label><select id="detailBrandFilter"></select></div>
+        <div><label>搜索</label><input id="detailSearch" placeholder="供应商/批次/款号/颜色/箱号"></div>
+      </div>
+      <div class="smallActions">
+        <button class="btn" id="exportDetails" title="导出每箱扫码明细">导出明细 CSV</button>
+        <button class="btn warn" id="undoLast" title="删除最近一次录入的数据">删除最后一条</button>
+        <button class="btn danger" id="clearAll" title="清空当前浏览器里的全部扫码数据">清空全部数据</button>
+      </div>
+    </div>
+    <div class="card"><div id="detailList"></div></div>
+  </section>
+
+  <section id="page-labels" class="page">
+    <div class="card no-print">
+      <h2>厂家二维码 / 箱唛生成</h2>
+      <div class="notice"><div class="icon">!</div><div><strong>箱唛打印：</strong>这里主要用于仓库临时补打箱唛。正式给厂家使用的，建议发“厂家专用箱唛打印工具最终版”。本页面按 90×50mm 标签纸设计。</div></div>
+      <textarea id="labelInput" placeholder="例如：红珊瑚	供应商1	72次	109-6568	黑色	001	1	5	7	8	6	3	0	0	0	0	0"></textarea>
+      <div class="smallActions">
+        <button class="btn" id="makeLabels" title="根据粘贴的数据生成 90×50 箱唛">生成箱唛</button>
+        <button class="btn secondary" id="printLabels" title="打印已生成的箱唛">打印箱唛</button>
+        <button class="btn light" id="fillExample" title="填入示例数据测试">填入示例</button>
+      </div>
+      <div id="labelStatus" class="status">请先粘贴箱唛数据，再生成箱唛。</div>
+    </div>
+    <div class="print-area"><div id="labelsBox" class="labels"></div></div>
+  </section>
+
+  <section id="page-settings" class="page">
+    <div class="card">
+      <h2>品牌设置</h2>
+      <div class="notice tipBlue"><div class="icon">i</div><div><strong>品牌设置：</strong>这里填你的 4 个品牌名，后续筛选和汇总会按这些品牌显示。每行一个品牌。</div></div>
+      <textarea id="brandSettings"></textarea>
+      <button class="btn block" id="saveBrands" title="保存品牌列表">保存品牌</button>
+    </div>
+    <div class="card">
+      <h2>数据备份</h2>
+      <div class="notice"><div class="icon">!</div><div><strong>数据说明：</strong>当前数据只保存在这个手机/电脑浏览器里。每天扫完建议导出明细 CSV 和汇总 CSV。换手机、多手机合并、长期保存，才需要升级云端数据库版。</div></div>
+      <div class="smallActions">
+        <button class="btn" id="exportBackup" title="导出完整备份，方便换设备恢复">导出备份 JSON</button>
+        <button class="btn light" id="importBackupBtn" title="从备份 JSON 恢复数据">导入备份 JSON</button>
+        <input type="file" id="backupFile" accept="application/json" class="hide">
+      </div>
+    </div>
+    <div class="card">
+      <h2>部署提示</h2>
+      <div class="notice tipBlue"><div class="icon">i</div><div><strong>部署提示：</strong>手机摄像头扫码建议放到 HTTPS 地址。只需要静态网页托管，不需要后端数据库。直接本地打开或微信内打开，摄像头权限可能不稳定；扫码枪输入则不受影响。</div></div>
+    </div>
+  </section>
+</div>
+
+<div class="bottomBar no-print">
+  <button class="btn" id="quickScan" title="回到扫码页面">扫码</button>
+  <button class="btn secondary" id="quickSummary" title="查看当天汇总">看汇总</button>
+</div>
+
+<script>
+const SIZES = ['34','35','36','37','38','39','40','41','42','43','44'];
+const STORE_RECORDS = 'shoe_mobile_records_v2';
+const STORE_BRANDS = 'shoe_mobile_brands_v2';
+let records = safeJSON(localStorage.getItem(STORE_RECORDS), []);
+let brands = safeJSON(localStorage.getItem(STORE_BRANDS), ['红珊瑚','品牌B','品牌C','品牌D']);
+let html5Scanner = null, nativeStream = null, nativeDetector = null, nativeScanning = false;
+let lastScan = { raw:'', time:0 };
+let pending = null;
+const $ = id => document.getElementById(id);
+
+function safeJSON(str, fallback){try{return JSON.parse(str)||fallback}catch(e){return fallback}}
+function save(){localStorage.setItem(STORE_RECORDS, JSON.stringify(records)); renderAll();}
+function saveBrandList(){localStorage.setItem(STORE_BRANDS, JSON.stringify(brands)); renderAll();}
+function nowStr(){const d=new Date(),p=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`}
+function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function csvEsc(v){const s=String(v??'');return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
+function showStatus(msg,type='ok'){const el=$('scanStatus');el.textContent=msg;el.className='status '+(type==='err'?'err':type==='warn'?'warn':'')}
+function setLabelStatus(msg,type='ok'){const el=$('labelStatus'); if(!el) return; el.textContent=msg; el.className='status '+(type==='err'?'err':type==='warn'?'warn':'')}
+function updateActionStates(){
+  const hasRecords = records.length > 0;
+  ['exportSummary','exportDetails','undoLast','clearAll','exportBackup'].forEach(id=>{const el=$(id); if(el) el.disabled=!hasRecords;});
+  const hasLabels = !!document.querySelector('#labelsBox .label-card');
+  const printBtn=$('printLabels'); if(printBtn) printBtn.disabled=!hasLabels;
+}
+function labelWarnings(rows){
+  const warnings=[]; const seen=new Set();
+  rows.forEach((o,i)=>{
+    const no=i+1; const total=SIZES.reduce((a,s)=>a+(Number(o[s])||0),0);
+    if(!String(o.brand||'').trim()) warnings.push(`第${no}行缺品牌`);
+    if(!String(o.model||'').trim()) warnings.push(`第${no}行缺款号`);
+    if(!String(o.color||'').trim()) warnings.push(`第${no}行缺颜色`);
+    if(!String(o.box||'').trim()) warnings.push(`第${no}行缺箱号`);
+    if(total<=0) warnings.push(`第${no}行尺码合计为0`);
+    const key=[o.brand,o.supplier,o.batch,o.model,o.color,o.box].join('|');
+    if(seen.has(key)) warnings.push(`第${no}行疑似重复箱号：${o.box}`);
+    seen.add(key);
+  });
+  return warnings;
+}
+function beep(){try{const ctx=new (window.AudioContext||window.webkitAudioContext)();const o=ctx.createOscillator();const g=ctx.createGain();o.frequency.value=880;g.gain.value=.06;o.connect(g);g.connect(ctx.destination);o.start();setTimeout(()=>{o.stop();ctx.close()},110)}catch(e){}}
+function vibrate(){try{navigator.vibrate&&navigator.vibrate(80)}catch(e){}}
+
+function parseQR(raw){
+  raw = String(raw||'').trim();
+  if(!raw) throw new Error('二维码内容为空');
+  const start = raw.indexOf('SHOEBOX|v1|');
+  if(start >= 0) raw = raw.slice(start).trim();
+  if(!raw.startsWith('SHOEBOX|v1|')) throw new Error('不是本系统二维码格式');
+  const obj = {raw}; const sizesObj = {};
+  raw.split('|').slice(2).forEach(part=>{
+    const i = part.indexOf('='); if(i<0) return;
+    const k = part.slice(0,i).trim(); const v = part.slice(i+1).trim();
+    if(k === 'sizes'){
+      v.split(',').forEach(x=>{const [sk,sv] = x.split(':'); const size=String(sk||'').trim(); if(size) sizesObj[size]=Number(String(sv||'0').trim())||0;});
+    } else obj[k]=v;
+  });
+  SIZES.forEach(s=>{if(sizesObj[s] == null) sizesObj[s]=0});
+  const computedTotal = SIZES.reduce((a,s)=>a+(Number(sizesObj[s])||0),0);
+  const totalFromQR = Number(obj.total);
+  const total = computedTotal || (Number.isFinite(totalFromQR)?totalFromQR:0);
+  const r = {time:nowStr(), brand:obj.brand||'', supplier:obj.supplier||'', batch:obj.batch||'', model:obj.model||'', color:obj.color||'', box:obj.box||'', sizes:sizesObj, total, raw};
+  r.uid = [r.brand,r.supplier,r.batch,r.model,r.color,r.box].join('|') || raw;
+  if(!r.brand || !r.model || !r.color) throw new Error('二维码缺少品牌/款号/颜色');
+  return r;
+}
+function recordHTML(r){
+  const sizeHtml = SIZES.filter(s=>Number(r.sizes[s])>0).map(s=>`<div class="sizeBox"><span>${s}</span><br><b>${r.sizes[s]}</b></div>`).join('') || '<div class="hint">无尺码数量</div>';
+  return `<div class="row"><div class="name">品牌</div><div>${esc(r.brand)}</div></div>
+  <div class="row"><div class="name">供应商</div><div>${esc(r.supplier)}</div></div>
+  <div class="row"><div class="name">批次</div><div>${esc(r.batch)}</div></div>
+  <div class="row"><div class="name">款号</div><div><b>${esc(r.model)}</b></div></div>
+  <div class="row"><div class="name">颜色</div><div><b>${esc(r.color)}</b></div></div>
+  <div class="row"><div class="name">箱号</div><div>${esc(r.box)}</div></div>
+  <div class="row"><div class="name">合计</div><div><b>${r.total}</b> 双</div></div>
+  <div class="sizesMini">${sizeHtml}</div>`;
+}
+function addRecord(r){
+  if(records.some(x=>x.uid===r.uid)){
+    showStatus(`重复扫码，已拦截：${r.brand} ${r.model} ${r.color} 箱号 ${r.box}`, 'err');
+    vibrate(); return false;
+  }
+  records.unshift(r); save(); beep(); vibrate();
+  $('latestCard').classList.remove('hide'); $('latestInfo').innerHTML = recordHTML(r);
+  showStatus(`录入成功：${r.brand} ${r.model} ${r.color} 箱号${r.box}，合计${r.total}双`, 'ok');
+  return true;
+}
+function handleRaw(raw){
+  raw = String(raw||'').trim();
+  const t=Date.now(); if(raw===lastScan.raw && t-lastScan.time<1500) return; lastScan={raw,time:t};
+  let r; try{r=parseQR(raw)}catch(e){showStatus('扫码失败：'+e.message,'err');return}
+  if($('autoAdd').checked){addRecord(r)} else {pending=r; $('pendingCard').classList.remove('hide'); $('pendingInfo').innerHTML=recordHTML(r); showStatus('已扫到二维码，请确认入库。','warn')}
+}
+
+async function loadScript(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.async=true;s.onload=resolve;s.onerror=reject;document.head.appendChild(s);setTimeout(()=>reject(new Error('加载扫码组件超时')),8000);});}
+async function startScan(){
+  await stopScan(); $('reader').innerHTML='正在打开摄像头...'; showStatus('正在打开摄像头，请允许相机权限。','warn');
+  try{
+    if(!window.Html5Qrcode){
+      try{await loadScript('https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js')}catch(e){}
+    }
+    if(window.Html5Qrcode){
+      html5Scanner = new Html5Qrcode('reader', false);
+      const qrbox = Math.min(280, Math.floor(Math.min(window.innerWidth, 520)*0.72));
+      await html5Scanner.start({facingMode:'environment'}, {fps:10, qrbox:{width:qrbox,height:qrbox}, aspectRatio:1.777}, txt=>handleRaw(txt), ()=>{});
+      showStatus('摄像头已开启，对准二维码即可自动录入。','ok'); return;
+    }
+    if('BarcodeDetector' in window){
+      nativeDetector = new BarcodeDetector({formats:['qr_code']});
+      nativeStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}},audio:false});
+      const video = document.createElement('video'); video.setAttribute('playsinline',''); video.muted=true; video.srcObject=nativeStream; video.style.width='100%';
+      $('reader').innerHTML=''; $('reader').appendChild(video); await video.play(); nativeScanning=true;
+      nativeLoop(video); showStatus('摄像头已开启，对准二维码即可自动录入。','ok'); return;
+    }
+    throw new Error('当前浏览器不支持网页摄像头扫码');
+  }catch(e){
+    $('reader').innerHTML='摄像头开启失败'; showStatus('无法扫码：'+e.message+'。建议换 Safari/Chrome，或用蓝牙扫码枪。','err');
+  }
+}
+async function nativeLoop(video){
+  if(!nativeScanning) return;
+  try{const codes=await nativeDetector.detect(video); if(codes&&codes.length) handleRaw(codes[0].rawValue)}catch(e){}
+  requestAnimationFrame(()=>nativeLoop(video));
+}
+async function stopScan(){
+  nativeScanning=false;
+  if(html5Scanner){try{await html5Scanner.stop()}catch(e){} try{html5Scanner.clear()}catch(e){} html5Scanner=null;}
+  if(nativeStream){nativeStream.getTracks().forEach(t=>t.stop()); nativeStream=null;}
+  $('reader').innerHTML='摄像头未开启';
+}
+
+function setPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$('page-'+name).classList.add('active');document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===name)); if(name==='summary')renderSummary(); if(name==='details')renderDetails();}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setPage(b.dataset.page));
+$('quickScan').onclick=()=>setPage('scan'); $('quickSummary').onclick=()=>setPage('summary');
+$('startBtn').onclick=startScan; $('stopBtn').onclick=stopScan;
+$('manualAdd').onclick=()=>{const v=$('manualInput').value.trim(); if(v){handleRaw(v); $('manualInput').value='';}};
+$('manualInput').addEventListener('keydown',e=>{if(e.key==='Enter' && (e.ctrlKey||e.metaKey)){e.preventDefault();$('manualAdd').click();}});
+$('confirmPending').onclick=()=>{if(pending){addRecord(pending);pending=null;$('pendingCard').classList.add('hide')}};
+
+function optionHTML(includeAll=true){return (includeAll?'<option value="">全部品牌</option>':'') + brands.map(b=>`<option value="${esc(b)}">${esc(b)}</option>`).join('')}
+function renderSelects(){['brandFilter','detailBrandFilter'].forEach(id=>{const old=$(id).value; $(id).innerHTML=optionHTML(true); $(id).value=old;}); $('brandSettings').value=brands.join('\n');}
+function summaryRows(){
+  const f=$('brandFilter').value, q=$('summarySearch').value.trim().toLowerCase(); const map=new Map();
+  records.forEach(r=>{if(f&&r.brand!==f)return; const key=[r.brand,r.model,r.color].join('|'); if(q && !(r.model+' '+r.color+' '+r.brand).toLowerCase().includes(q)) return; if(!map.has(key)){map.set(key,{brand:r.brand,model:r.model,color:r.color,boxes:0,total:0,sizes:Object.fromEntries(SIZES.map(s=>[s,0]))})} const o=map.get(key); o.boxes++; o.total+=Number(r.total)||0; SIZES.forEach(s=>o.sizes[s]+=Number(r.sizes[s])||0);});
+  return [...map.values()].sort((a,b)=>String(a.brand).localeCompare(b.brand,'zh-CN')||String(a.model).localeCompare(b.model,'zh-CN')||String(a.color).localeCompare(b.color,'zh-CN'));
+}
+function renderSummary(){
+  const rows=summaryRows(); $('kpiBoxes').textContent=records.filter(r=>!$('brandFilter').value||r.brand===$('brandFilter').value).length; $('kpiPairs').textContent=rows.reduce((a,r)=>a+r.total,0); $('kpiSku').textContent=rows.length;
+  const head=['品牌','款号','颜色','箱数',...SIZES,'总双数'];
+  $('summaryTable').innerHTML='<thead><tr>'+head.map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>'+rows.map(r=>`<tr><td>${esc(r.brand)}</td><td class="left"><b>${esc(r.model)}</b></td><td>${esc(r.color)}</td><td>${r.boxes}</td>${SIZES.map(s=>`<td>${r.sizes[s]||0}</td>`).join('')}<td><b>${r.total}</b></td></tr>`).join('')+'</tbody>';
+}
+function filteredDetails(){const f=$('detailBrandFilter').value, q=$('detailSearch').value.trim().toLowerCase(); return records.filter(r=>(!f||r.brand===f)&&(!q||(r.brand+' '+r.supplier+' '+r.batch+' '+r.model+' '+r.color+' '+r.box).toLowerCase().includes(q)));}
+function renderDetails(){
+  const rows=filteredDetails();
+  $('detailList').innerHTML = rows.length ? rows.slice(0,300).map((r,i)=>`<div class="listItem"><div class="head"><div>${esc(r.brand)} ${esc(r.model)} ${esc(r.color)}</div><span class="badge">${r.total}双</span></div><div class="meta">${esc(r.time)}｜供应商：${esc(r.supplier)}｜批次：${esc(r.batch)}｜箱号：${esc(r.box)}</div><div class="meta">尺码：${SIZES.filter(s=>r.sizes[s]>0).map(s=>s+':'+r.sizes[s]).join('，')}</div></div>`).join('') : '<div class="hint">暂无明细。</div>';
+}
+$('brandFilter').onchange=renderSummary; $('summarySearch').oninput=renderSummary; $('refreshSummary').onclick=renderSummary; $('detailBrandFilter').onchange=renderDetails; $('detailSearch').oninput=renderDetails;
+function download(name, content, type='text/csv;charset=utf-8'){const blob=new Blob([content],{type}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+function exportDetails(){const header=['扫码时间','品牌','供应商','批次/物流','款号','颜色','箱号',...SIZES,'合计','二维码内容']; const rows=filteredDetails().map(r=>[r.time,r.brand,r.supplier,r.batch,r.model,r.color,r.box,...SIZES.map(s=>r.sizes[s]||0),r.total,r.raw]); download('鞋子扫码入库明细_'+new Date().toISOString().slice(0,10)+'.csv','\ufeff'+[header,...rows].map(row=>row.map(csvEsc).join(',')).join('\n'));}
+function exportSummary(){const header=['品牌','款号','颜色','箱数',...SIZES,'总双数']; const rows=summaryRows().map(r=>[r.brand,r.model,r.color,r.boxes,...SIZES.map(s=>r.sizes[s]||0),r.total]); download('鞋子到货汇总_'+new Date().toISOString().slice(0,10)+'.csv','\ufeff'+[header,...rows].map(row=>row.map(csvEsc).join(',')).join('\n'));}
+$('exportDetails').onclick=exportDetails; $('exportSummary').onclick=exportSummary;
+$('undoLast').onclick=()=>{if(!records.length)return; if(confirm('确定删除最后一条扫码记录？')){records.shift();save();renderDetails();}};
+$('clearAll').onclick=()=>{if(confirm('确定清空全部扫码数据？这个操作不能恢复。')){records=[];save();renderDetails();showStatus('已清空全部数据。','warn')}};
+$('saveBrands').onclick=()=>{brands=$('brandSettings').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean); if(!brands.length)brands=['品牌A','品牌B','品牌C','品牌D']; saveBrandList(); alert('品牌已保存');};
+$('exportBackup').onclick=()=>download('鞋子扫码数据备份_'+new Date().toISOString().slice(0,10)+'.json', JSON.stringify({records,brands,exportTime:nowStr()},null,2), 'application/json;charset=utf-8');
+$('importBackupBtn').onclick=()=>$('backupFile').click();
+$('backupFile').onchange=e=>{const f=e.target.files[0]; if(!f)return; const reader=new FileReader(); reader.onload=()=>{try{const data=JSON.parse(reader.result); if(Array.isArray(data.records)){records=data.records; if(Array.isArray(data.brands))brands=data.brands; save(); saveBrandList(); alert('导入成功')}}catch(err){alert('导入失败：'+err.message)}}; reader.readAsText(f,'utf-8');};
+
+function splitCsvLine(line){const out=[];let cur='',q=false;for(let i=0;i<line.length;i++){const c=line[i];if(c==='"'){if(q&&line[i+1]==='"'){cur+='"';i++}else q=!q}else if(c===','&&!q){out.push(cur);cur=''}else cur+=c}out.push(cur);return out.map(x=>x.trim())}
+function buildQR(o){const sizes=SIZES.map(s=>`${s}:${Number(o[s])||0}`).join(',');const total=SIZES.reduce((a,s)=>a+(Number(o[s])||0),0);return `SHOEBOX|v1|brand=${o.brand||''}|supplier=${o.supplier||''}|batch=${o.batch||''}|model=${o.model||''}|color=${o.color||''}|box=${o.box||''}|sizes=${sizes}|total=${total}`}
+function parseLabelRows(txt){const lines=String(txt||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const arr=[];for(const line of lines){const start=line.indexOf('SHOEBOX|v1|'); if(start>=0){try{const r=parseQR(line.slice(start)); const o={brand:r.brand,supplier:r.supplier,batch:r.batch,model:r.model,color:r.color,box:r.box}; SIZES.forEach(s=>o[s]=r.sizes[s]||0); arr.push(o)}catch(e){} continue;} let cols=line.split('\t'); if(cols.length<8) cols=splitCsvLine(line); if(cols[0]&&cols[0].replace(/\s/g,'').includes('品牌')) continue; if(cols.length<6) continue; const o={brand:cols[0]||'',supplier:cols[1]||'',batch:cols[2]||'',model:cols[3]||'',color:cols[4]||'',box:cols[5]||''}; SIZES.forEach((s,i)=>o[s]=Number(String(cols[6+i]||'0').trim())||0); arr.push(o);} return arr;}
+function renderLabels(){
+  const rows=parseLabelRows($('labelInput').value);
+  if(!rows.length){$('labelsBox').innerHTML='<div class="hint">没有可生成的箱唛。</div>'; setLabelStatus('没有可生成的箱唛，请检查粘贴内容。','err'); updateActionStates(); return false;}
+  const warnings = labelWarnings(rows);
+  $('labelsBox').innerHTML=rows.map(o=>{const qr=buildQR(o); const total=SIZES.reduce((a,s)=>a+(Number(o[s])||0),0); const sizeCells=SIZES.flatMap(s=>{const n=Number(o[s])||0; return [`<div class="size-cell">${s}</div>`,`<div class="qty-cell ${n===0?'zero':''}"><b>${n}</b></div>`]}).join(''); return `<div class="label-card"><div class="label-info"><div class="label-brand">${esc(o.brand)}</div><div class="label-supplier">供应商：${esc(o.supplier)}</div><div class="label-meta">批次：${esc(o.batch)}　箱号：${esc(o.box)}</div><div class="label-model">${esc(o.model)}</div><div class="label-color-total">颜色：${esc(o.color)}　合计：<b>${total}</b>双</div></div><div class="label-qr"><img class="qrimg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=1&data=${encodeURIComponent(qr)}"></div><div class="label-sizes">${sizeCells}</div></div>`}).join('');
+  if(warnings.length){setLabelStatus(`已生成 ${rows.length} 张箱唛，但有 ${warnings.length} 个数据提醒：` + warnings.slice(0,3).join('；') + (warnings.length>3?'；...':''),'warn');}
+  else{setLabelStatus(`已生成 ${rows.length} 张箱唛，数据检查正常。`,'ok');}
+  updateActionStates(); return true;
+}
+$('makeLabels').onclick=renderLabels; $('printLabels').onclick=()=>{renderLabels();setTimeout(()=>window.print(),300)}; $('fillExample').onclick=()=>{$('labelInput').value='红珊瑚\t供应商1\t72次\t109-6568\t黑色\t001\t1\t5\t7\t8\t6\t3\t0\t0\t0\t0\t0';renderLabels();};
+
+function renderAll(){renderSelects();renderSummary();renderDetails(); if(records[0]){$('latestCard').classList.remove('hide');$('latestInfo').innerHTML=recordHTML(records[0]);} updateActionStates();}
+renderAll();
+window.addEventListener('beforeunload',()=>{try{stopScan()}catch(e){}});
+</script>
+</body>
+</html>
