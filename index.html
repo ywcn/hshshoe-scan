@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>鞋子手机扫码入库系统｜仓库扫码最终稳定版</title>
+<title>鞋子手机扫码入库系统｜仓库扫码摄像头兼容版</title>
 <style>
 :root{--main:#0f766e;--main2:#115e59;--bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#d1d5db;--danger:#dc2626;--warn:#b45309;--ok:#047857;--soft:#ecfdf5;--focus:#99f6e4;--infoBg:#fff7d6;--infoText:#8a5a00;--infoBorder:#f2d38a}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Microsoft YaHei",sans-serif}.app{max-width:920px;margin:0 auto;min-height:100vh;padding:12px 12px 86px}.top{position:sticky;top:0;z-index:20;background:rgba(245,247,251,.96);backdrop-filter:blur(10px);padding:8px 0 10px;border-bottom:1px solid #e5e7eb}.title{display:flex;align-items:center;gap:8px;margin:0 0 8px}.title h1{font-size:20px;margin:0}.pill{font-size:12px;background:#d1fae5;color:#065f46;border-radius:999px;padding:4px 8px;font-weight:800}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.tab{border:1px solid var(--line);background:#fff;color:#374151;border-radius:12px;padding:10px 4px;font-size:14px;font-weight:800;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease}.tab:hover{transform:translateY(-1px) scale(1.02);box-shadow:0 6px 14px rgba(15,23,42,.10);border-color:#99f6e4}.tab:active{transform:scale(.98)}.tab.active{background:var(--main);border-color:var(--main);color:#fff;box-shadow:0 6px 14px rgba(15,118,110,.18)}.page{display:none}.page.active{display:block}.card{background:var(--card);border:1px solid #e5e7eb;border-radius:18px;padding:14px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}h2{font-size:18px;margin:0 0 10px}.hint{font-size:13px;line-height:1.65;color:var(--muted)}.notice{display:flex;gap:10px;align-items:flex-start;background:var(--infoBg);color:var(--infoText);border:1px solid var(--infoBorder);border-radius:14px;padding:11px 12px;font-size:13px;line-height:1.65;margin:8px 0 10px}.notice .icon{flex:0 0 22px;width:22px;height:22px;border-radius:999px;background:#fff3bf;color:#9a6700;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;margin-top:1px}.notice strong{color:#7a4c00}.tipBlue{background:#eff6ff;color:#1d4e89;border-color:#bfdbfe}.tipBlue .icon{background:#dbeafe;color:#1d4ed8}.tipGreen{background:#ecfdf5;color:#065f46;border-color:#a7f3d0}.tipGreen .icon{background:#d1fae5;color:#047857}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}label{display:block;font-size:13px;color:#374151;font-weight:800;margin-bottom:5px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:13px;background:#fff;padding:12px;font-size:16px;outline:none;transition:border-color .18s ease, box-shadow .18s ease}input:focus,select:focus,textarea:focus{border-color:#14b8a6;box-shadow:0 0 0 4px rgba(20,184,166,.12)}textarea{min-height:98px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px}.btn{border:0;border-radius:14px;padding:13px 14px;font-size:16px;font-weight:900;background:var(--main);color:#fff;box-shadow:0 4px 12px rgba(15,118,110,.14);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, filter .18s ease, background-color .18s ease}.btn:hover:not(:disabled){transform:translateY(-1px) scale(1.03);box-shadow:0 8px 18px rgba(15,118,110,.20);filter:brightness(1.02)}.btn:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 3px 8px rgba(15,118,110,.18)}.btn:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(20,184,166,.18),0 8px 18px rgba(15,118,110,.20)}.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;filter:grayscale(.1)}.btn.secondary{background:#111827;box-shadow:0 4px 12px rgba(17,24,39,.15)}.btn.secondary:hover:not(:disabled){box-shadow:0 8px 18px rgba(17,24,39,.24)}.btn.light{background:#eef2f7;color:#111827;box-shadow:0 2px 8px rgba(15,23,42,.08)}.btn.light:hover:not(:disabled){background:#e5e7eb;box-shadow:0 7px 14px rgba(15,23,42,.12)}.btn.warn{background:var(--warn)}.btn.danger{background:var(--danger)}.btn.block{display:block;width:100%;margin-top:8px}.bigBtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.status{border-radius:14px;padding:12px;margin-top:10px;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;font-weight:800;line-height:1.5}.status.err{background:#fef2f2;color:#991b1b;border-color:#fecaca}.status.warn{background:#fffbeb;color:#92400e;border-color:#fde68a}.reader{width:100%;min-height:260px;background:#0b1020;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;border:2px solid #111827}.reader video{width:100%;height:auto;max-height:420px}.manual{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.kpi{background:var(--soft);border:1px solid #a7f3d0;border-radius:16px;padding:11px;transition:transform .18s ease, box-shadow .18s ease}.kpi:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(4,120,87,.10)}.kpi span{display:block;font-size:12px;color:#047857;font-weight:800}.kpi b{display:block;margin-top:4px;font-size:24px;color:#064e3b}.latest{border:2px solid #bbf7d0;background:#f0fdf4}.latest .row{display:grid;grid-template-columns:80px 1fr;gap:8px;padding:4px 0;font-size:15px}.latest .name{color:#047857;font-weight:900}.sizesMini{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.sizeBox{border:1px solid #bbf7d0;border-radius:10px;background:#fff;padding:8px;text-align:center}.sizeBox b{font-size:18px}.tablebox{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff}table{border-collapse:collapse;width:100%;min-width:860px}th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:center;white-space:nowrap;font-size:14px}th{background:var(--main);color:#fff;position:sticky;top:0;z-index:1}td.left{text-align:left}.smallActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.listItem{border:1px solid #e5e7eb;border-radius:14px;background:#fff;padding:11px;margin:8px 0}.listItem .head{display:flex;justify-content:space-between;gap:10px;font-weight:900}.listItem .meta{font-size:13px;color:var(--muted);margin-top:5px}.badge{display:inline-block;border-radius:999px;background:#eef2ff;color:#3730a3;padding:3px 8px;font-size:12px;font-weight:800}.bottomBar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid #e5e7eb;padding:10px max(12px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-right));display:grid;grid-template-columns:1fr 1fr;gap:10px}.labels{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;margin-top:12px}.label-card{border:1.5px solid #111;border-radius:8px;background:#fff;padding:10px;display:grid;grid-template-columns:1fr 110px;gap:8px;break-inside:avoid}.label-card h3{font-size:18px;margin:0 0 4px}.label-card .big{font-size:22px;font-weight:900;line-height:1.25}.qrimg{width:106px;height:106px}.label-sizes{grid-column:1/3;display:grid;grid-template-columns:repeat(6,1fr);font-size:13px;border-top:1px solid #333;border-left:1px solid #333}.label-sizes div{border-right:1px solid #333;border-bottom:1px solid #333;padding:4px;text-align:center}.hide{display:none!important}.switchLine{display:flex;align-items:center;gap:10px;margin:8px 0}.switchLine label{cursor:pointer}.switchLine input{width:auto;transform:scale(1.2);cursor:pointer}@media(max-width:520px){.app{padding:10px 10px 92px}.tabs{gap:5px}.tab{font-size:13px;padding:9px 2px;border-radius:10px}.grid,.grid3{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}.kpi{padding:9px}.kpi b{font-size:20px}.reader{min-height:235px}.manual{grid-template-columns:1fr}.label-card{grid-template-columns:1fr 98px}.qrimg{width:94px;height:94px}.label-sizes{grid-template-columns:repeat(4,1fr)}}@media print{body{background:#fff}.top,.bottomBar,.no-print,.page:not(#page-labels) .card:not(.print-area){display:none!important}.app{max-width:none;padding:0}.page{display:block!important}.page:not(#page-labels){display:none!important}.print-area{display:block!important}.labels{grid-template-columns:repeat(2,1fr);gap:8px}.label-card{page-break-inside:avoid}}
@@ -17,7 +17,7 @@
 <body>
 <div class="app">
   <div class="top no-print">
-    <div class="title"><h1>鞋子手机扫码入库</h1><span class="pill">仓库最终稳定版</span></div>
+    <div class="title"><h1>鞋子手机扫码入库</h1><span class="pill">仓库摄像头兼容版</span></div>
     <div class="tabs">
       <button class="tab active" data-page="scan">扫码</button>
       <button class="tab" data-page="summary">汇总</button>
@@ -235,29 +235,55 @@ function handleRaw(raw){
   if($('autoAdd').checked){addRecord(r)} else {pending=r; $('pendingCard').classList.remove('hide'); $('pendingInfo').innerHTML=recordHTML(r); showStatus('已扫到二维码，请确认入库。','warn')}
 }
 
-async function loadScript(src){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.async=true;s.onload=resolve;s.onerror=reject;document.head.appendChild(s);setTimeout(()=>reject(new Error('加载扫码组件超时')),8000);});}
+async function loadScript(src){
+  return new Promise((resolve,reject)=>{
+    const s=document.createElement('script');
+    s.src=src; s.async=true; s.crossOrigin='anonymous'; s.referrerPolicy='no-referrer';
+    let done=false;
+    const finish=(ok,err)=>{ if(done) return; done=true; clearTimeout(timer); ok?resolve():reject(err||new Error('加载失败')); };
+    s.onload=()=>finish(true);
+    s.onerror=()=>finish(false,new Error('扫码组件加载失败：'+src));
+    const timer=setTimeout(()=>finish(false,new Error('扫码组件加载超时：'+src)),10000);
+    document.head.appendChild(s);
+  });
+}
+async function ensureScannerLib(){
+  if(window.Html5Qrcode) return true;
+  const cdns = [
+    'https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/minified/html5-qrcode.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js',
+    'https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js'
+  ];
+  for(const url of cdns){
+    try{ showStatus('正在加载扫码组件，请稍等...','warn'); await loadScript(url); if(window.Html5Qrcode) return true; }catch(e){}
+  }
+  return false;
+}
 async function startScan(){
   await stopScan(); $('reader').innerHTML='正在打开摄像头...'; showStatus('正在打开摄像头，请允许相机权限。','warn');
   try{
-    if(!window.Html5Qrcode){
-      try{await loadScript('https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js')}catch(e){}
-    }
-    if(window.Html5Qrcode){
+    const hasLib = await ensureScannerLib();
+    if(hasLib && window.Html5Qrcode){
       html5Scanner = new Html5Qrcode('reader', false);
       const qrbox = Math.min(280, Math.floor(Math.min(window.innerWidth, 520)*0.72));
       await html5Scanner.start({facingMode:'environment'}, {fps:10, qrbox:{width:qrbox,height:qrbox}, aspectRatio:1.777}, txt=>handleRaw(txt), ()=>{});
       showStatus('摄像头已开启，对准二维码即可自动录入。','ok'); return;
     }
-    if('BarcodeDetector' in window){
+    if('BarcodeDetector' in window && navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
       nativeDetector = new BarcodeDetector({formats:['qr_code']});
       nativeStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}},audio:false});
       const video = document.createElement('video'); video.setAttribute('playsinline',''); video.muted=true; video.srcObject=nativeStream; video.style.width='100%';
       $('reader').innerHTML=''; $('reader').appendChild(video); await video.play(); nativeScanning=true;
       nativeLoop(video); showStatus('摄像头已开启，对准二维码即可自动录入。','ok'); return;
     }
-    throw new Error('当前浏览器不支持网页摄像头扫码');
+    throw new Error('扫码组件没有加载成功。手机能打开网页，但二维码识别库没有加载；可刷新重试，或使用蓝牙二维码扫码枪。');
   }catch(e){
-    $('reader').innerHTML='摄像头开启失败'; showStatus('无法扫码：'+e.message+'。建议换 Safari/Chrome，或用蓝牙扫码枪。','err');
+    $('reader').innerHTML='摄像头开启失败';
+    let msg = e && e.message ? e.message : String(e);
+    if(msg.includes('NotAllowed') || msg.includes('Permission')) msg='相机权限被拒绝，请在浏览器地址栏/系统设置里允许相机权限后重试。';
+    if(msg.includes('NotFound')) msg='没有找到可用摄像头。';
+    if(msg.includes('NotReadable')) msg='摄像头被其他应用占用，请关闭相机/微信/抖音等占用相机的应用后重试。';
+    showStatus('无法扫码：'+msg,'err');
   }
 }
 async function nativeLoop(video){
